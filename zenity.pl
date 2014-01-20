@@ -43,6 +43,9 @@ sub receiving_im_msg_cb {
     Purple::Debug::info("zenity", "buddy = ".Dumper($buddy));
 #    $display_name = $buddy->get_alias() ||  $buddy->get_name();
 #    $display_name =~ s/"/''/g;
+    # play a sound
+    system("/usr/bin/play /usr/share/sounds/gnome/default/alerts/drip.ogg");
+    # display a popup message
     my $title = "You have received a message in Pidgin";
     system("/usr/bin/zenity --info --title \"$title\" --text \"$msg\" --width 400");
     $_[2];
